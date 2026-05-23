@@ -83,14 +83,17 @@
   @media (max-width:780px){ .navlinks{display:none} }
 
   /* ============ HERO ============ */
-  .hero{padding:90px 0 60px;position:relative}
-  .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end}
-  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:40px} }
-  .availability{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--rule);border-radius:999px;background:var(--card-tint);font-size:12px;color:var(--ink-2);margin-bottom:28px}
+  .hero{padding:80px 0 40px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;max-width:1100px;margin:0 auto}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;gap:30px} }
+  .availability{display:inline-flex;align-items:center;gap:9px;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;background:var(--card-tint);font-size:11.5px;color:var(--ink-2);margin-bottom:22px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px, 4vw, 56px);line-height:1.08;letter-spacing:-.02em;margin:0;color:var(--ink);max-width:14ch}
+  .hero .lead{margin-top:22px;font-size:15px;line-height:1.55;max-width:48ch;color:var(--ink-2)}
+  .hero-ctas{margin-top:24px}
   .pulse{width:7px;height:7px;border-radius:50%;background:#95BF47;position:relative}
   .pulse::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid #95BF47;animation:pulse 1.8s ease-out infinite}
   @keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(2.4);opacity:0}}
-  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px, 9.5vw, 138px);line-height:.93;letter-spacing:-.025em;margin:0;color:var(--ink)}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px, 4vw, 56px);line-height:1.08;letter-spacing:-.02em;margin:0;color:var(--ink);max-width:14ch}
   .hero h1 .italic{font-style:italic;color:var(--ink-2)}
   .hero h1 .accent{color:var(--accent)}
   .hero .lead{margin-top:28px;font-size:17px;line-height:1.5;max-width:48ch;color:var(--ink-2)}
@@ -107,16 +110,17 @@
   .btn-secondary svg{width:14px;height:14px}
 
   /* Portrait */
-  .portrait{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--rule)}
-  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--bg-2);border:1px solid var(--rule);width:100%;max-width:380px;margin-left:auto;align-self:stretch}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;transition:filter .4s}
+  html[data-theme="light"] .portrait img{filter:brightness(1.05) contrast(.96)}
   .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 60%, color-mix(in oklab, var(--bg) 60%, transparent) 100%);pointer-events:none}
   .portrait .tag{position:absolute;bottom:16px;left:16px;right:16px;z-index:2;display:flex;justify-content:space-between;align-items:end;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
   .portrait .tag b{color:var(--ink);font-weight:500;display:block;margin-top:2px;font-family:var(--serif);font-size:15px;letter-spacing:0;text-transform:none}
 
   /* ============ Sections (tighter) ============ */
-  section{padding:70px 0;position:relative}
+  section{padding:48px 0;position:relative}
   section.contact{padding:100px 0 70px}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:30px;margin-bottom:38px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:30px;margin-bottom:32px}
   .sec-num{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em}
   .sec-title{font-family:var(--serif);font-size:clamp(36px,4.6vw,50px);line-height:1;margin:0;letter-spacing:-.02em;font-weight:400}
   .sec-title .italic{font-style:italic;color:var(--accent)}
@@ -133,7 +137,7 @@
   .fact:last-child{border-bottom:0}
   .fact span:last-child{color:var(--ink);font-weight:500}
 
-  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:28px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:60px}
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:24px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:40px}
   @media (max-width:720px){ .stats-row{grid-template-columns:repeat(2,1fr);gap:20px} }
   .stat .num{font-family:var(--serif);font-size:clamp(44px,5.4vw,72px);line-height:1;letter-spacing:-.02em}
   .stat .num .plus{color:var(--accent);font-style:italic}
@@ -171,7 +175,8 @@
   .testi-wrap{position:relative}
   .testi-viewport{overflow:hidden;border-radius:14px}
   .testi-track{display:flex;gap:18px;transition:transform .6s cubic-bezier(.22,1,.36,1)}
-  .testi-card{flex:0 0 calc((100% - 36px) / 3);aspect-ratio:9/16;border-radius:14px;background:var(--card-tint);border:1px solid var(--rule);position:relative;overflow:hidden;cursor:pointer;transition:transform .35s}
+  .testi-card{flex:0 0 calc((100% - 48px) / 4);aspect-ratio:9/14;border-radius:14px;background:var(--card-tint);border:1px solid var(--rule);position:relative;overflow:hidden;cursor:pointer;transition:transform .35s}
+  @media (max-width:1100px){ .testi-card{flex:0 0 calc((100% - 36px) / 3)} }
   @media (max-width:900px){ .testi-card{flex:0 0 calc((100% - 18px) / 2)} .testi-track{gap:18px} }
   @media (max-width:520px){ .testi-card{flex:0 0 100%} }
   .testi-card:not(.is-letter):hover{transform:translateY(-3px)}
@@ -289,10 +294,10 @@
     </a>
     <div class="navlinks">
       <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
-      <a href="#work" data-de="Arbeiten" data-en="Work">Arbeiten</a>
-      <a href="#testimonials" data-de="Stimmen" data-en="Testimonials">Stimmen</a>
+      <a href="#work" data-de="Projekte" data-en="Portfolio">Projekte</a>
+      <a href="#testimonials" data-de="Kundenstimmen" data-en="Testimonials">Kundenstimmen</a>
       <a href="#experience" data-de="Erfahrung" data-en="Experience">Erfahrung</a>
-      <a href="#stack" data-de="Stack" data-en="Stack">Stack</a>
+      <a href="#stack" data-de="Fähigkeiten &amp; Tools" data-en="Skills &amp; Tools">Fähigkeiten &amp; Tools</a>
       <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
     </div>
     <div class="nav-right">
@@ -318,12 +323,10 @@
         <span data-de="Offen für Vollzeitstellen als E-Commerce Manager — Deutschland" data-en="Open to full-time E-commerce Manager roles — Germany">Offen für Vollzeitstellen als E-Commerce Manager — Deutschland</span>
       </div>
       <h1 data-reveal data-delay="1">
-        <span data-de="E-Commerce" data-en="E-commerce">E-Commerce</span><br/>
-        <span data-de="Manager" data-en="manager">Manager</span> <span class="italic">&amp;</span><br/>
-        <span data-de="Web" data-en="website ">Web</span><span class="accent" data-de="designer." data-en="designer.">designer.</span>
+        <span data-de="E-Commerce " data-en="E-commerce ">E-Commerce </span><span data-de="Manager" data-en="manager">Manager</span> <span class="italic">&amp;</span> <span data-de="Web" data-en="website ">Web</span><span class="accent" data-de="designer." data-en="designer.">designer.</span>
       </h1>
       <p class="lead" data-reveal data-delay="2">
-<span data-de="Ich bin " data-en="I'm ">Ich bin </span><b>Ehtisham Khan</b><span data-de=" — E-Commerce Manager und Shopify-Spezialist mit " data-en=" — an E-Commerce Manager & Shopify specialist with "> — E-Commerce Manager mit </span><b data-de="6 Jahren praktischer Erfahrung" data-en="6 years of hands-on experience">6 Jahren praktischer Erfahrung</b><span data-de=" im Aufbau und Skalieren leistungsstarker Online-Shops. Von CRO und UX bis hin zur Verwaltung von Katalogen mit über " data-en=" building and scaling high-performing online stores. From CRO and UX to managing ">im Aufbau und Skalieren leistungsstarker Online-Shops. Von CRO und UX bis hin zur Verwaltung von Katalogen mit über </span><b>3.500 SKUs</b><span data-de=" — ich gestalte Shops, die nicht nur gut aussehen, sondern konvertieren. Aktuell offen für Vollzeit-Positionen im E-Commerce in Deutschland." data-en=" — I focus on creating stores that don't just look good, they convert. Currently open to full-time E-commerce opportunities in Germany."> — ich gestalte Shops, die nicht nur gut aussehen, sondern konvertieren. Aktuell offen für Vollzeit-Positionen im E-Commerce in Deutschland.</span>
+<span data-de="Ich bin " data-en="I'm ">Ich bin </span><b>Ehtisham Khan</b><span data-de=" — E-Commerce Manager mit " data-en=" — an E-Commerce Manager with "> — E-Commerce Manager mit </span><b data-de="6 Jahren praktischer Erfahrung" data-en="6 years of hands-on experience">6 Jahren praktischer Erfahrung</b><span data-de=" im Aufbau und Skalieren leistungsstarker Online-Shops. Von CRO und UX bis hin zur Verwaltung von Katalogen mit über " data-en=" building and scaling high-performing online stores. From CRO and UX to managing ">im Aufbau und Skalieren leistungsstarker Online-Shops. Von CRO und UX bis hin zur Verwaltung von Katalogen mit über </span><b>3.500 SKUs</b><span data-de=" — ich gestalte Shops, die nicht nur gut aussehen, sondern konvertieren. Aktuell offen für Vollzeit-Positionen im E-Commerce in Deutschland." data-en=" — I focus on creating stores that don't just look good, they convert. Currently open to full-time E-commerce opportunities in Germany."> — ich gestalte Shops, die nicht nur gut aussehen, sondern konvertieren. Aktuell offen für Vollzeit-Positionen im E-Commerce in Deutschland.</span>
       </p>
       <div class="hero-ctas" data-reveal data-delay="3">
         <a class="btn-primary" href="#work">
@@ -405,7 +408,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2 class="sec-title" data-reveal>
-        <span data-de="Ausgewählte " data-en="Selected ">Ausgewählte </span><span class="italic" data-de="Arbeiten" data-en="work">Arbeiten</span>
+        <span class="italic" data-de="Projekte" data-en="Portfolio">Projekte</span>
       </h2>
       <div class="sec-num" data-reveal>// 02</div>
     </div>
@@ -444,7 +447,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2 class="sec-title" data-reveal>
-        <span data-de="" data-en="Kind "></span><span class="italic" data-de="Stimmen" data-en="words">Stimmen</span>
+        <span class="italic" data-de="Kundenstimmen" data-en="Testimonials">Kundenstimmen</span>
       </h2>
       <div class="sec-num" data-reveal>// 03</div>
     </div>
@@ -492,7 +495,7 @@
             </div>
           </div>
           <a class="testi-card is-letter" href="assets/testimonials/letter-christian.jpg" target="_blank" rel="noopener">
-            <img class="letter-img" src="assets/testimonials/letter-christian.jpg" alt="Recommendation letter from Christian Rodrigue" loading="lazy"/>
+            <img class="letter-img" src="assets/testimonials/letter-christian.jpg" alt="Recommendation letter from Christian Rodrigue"/>
             <span class="pdf-badge">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               Letter
@@ -577,7 +580,7 @@
 <section id="stack">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="sec-title" data-reveal>Stack</h2>
+      <h2 class="sec-title" data-reveal style="white-space:nowrap"><span data-de="Fähigkeiten" data-en="Skills">Fähigkeiten</span> <span class="italic">&amp; Tools</span></h2>
       <div class="sec-num" data-reveal>// 06</div>
     </div>
     <div class="stack-grid">
@@ -609,9 +612,9 @@
         <div class="ico"><img src="https://cdn.simpleicons.org/googleanalytics/F9AB00" alt="Google Analytics" loading="lazy"/></div>
         <div><div class="bname">GA4</div><div class="brole" data-de="Analyse · Tracking" data-en="Analytics · Tracking">Analyse · Tracking</div></div>
       </div>
-      <div class="brand-card" style="--brand-glow:#FF6F61;" data-reveal data-delay="3">
-        <div class="ico"><img src="https://cdn.simpleicons.org/klaviyo/FF6F61" alt="Klaviyo" loading="lazy"/></div>
-        <div><div class="bname">Klaviyo</div><div class="brole" data-de="E-Mail · Flows · Segmente" data-en="Email · Flows · Segments">E-Mail · Flows · Segmente</div></div>
+      <div class="brand-card" style="--brand-glow:#5E8E3E;" data-reveal data-delay="3">
+        <div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#5E8E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></div>
+        <div><div class="bname" data-de="E-Mail-Marketing" data-en="Email Marketing">E-Mail-Marketing</div><div class="brole" data-de="Flows · Segmente · Newsletter" data-en="Flows · Segments · Newsletters">Flows · Segmente · Newsletter</div></div>
       </div>
       <div class="brand-card" style="--brand-glow:#EA4B71;" data-reveal>
         <div class="ico"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" loading="lazy"/></div>
@@ -646,12 +649,12 @@
 </span>
     <h2 data-reveal data-delay="1">
       <span data-de="Lass uns " data-en="Let's ">Lass uns </span><span class="italic" data-de="reden." data-en="talk.">reden.</span><br/>
-      <a href="mailto:Ehtishamkhan8889@gmail.com" data-de="Schreib mir." data-en="Say hello.">Schreib mir.</a>
+      <a href="/cdn-cgi/l/email-protection#86c3eef2eff5eee7ebedeee7e8bebebebfc6e1ebe7efeaa8e5e9eb" data-de="Schreib mir." data-en="Say hello.">Schreib mir.</a>
     </h2>
     <div class="row-links" data-reveal data-delay="2">
-      <a href="mailto:Ehtishamkhan8889@gmail.com">
+      <a href="/cdn-cgi/l/email-protection#3a7f524e5349525b5751525b54020202037a5d575b535614595557">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Ehtishamkhan8889@gmail.com
+        <span class="__cf_email__" data-cfemail="41042935283229202c2a29202f7979797801262c20282d6f222e2c">[email&#160;protected]</span>
       </a>
       <a href="tel:+4915225287615">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -677,14 +680,14 @@
       <a href="https://www.linkedin.com/in/contactehtisham/" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
       </a>
-      <a href="mailto:Ehtishamkhan8889@gmail.com" aria-label="Email">
+      <a href="/cdn-cgi/l/email-protection#44012c302d372c25292f2c252a7c7c7c7d042329252d286a272b29" aria-label="Email">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ===== Logo letter-by-letter animation =====
   (function(){
     const el = document.getElementById('brandName');
@@ -782,11 +785,12 @@
     const nextBtn = document.getElementById('testiNext');
     const dotsEl = document.getElementById('testiDots');
     const total = cards.length;
-    let perView = 3;
+    let perView = 4;
     function computePerView(){
       if (window.matchMedia('(max-width:520px)').matches) perView = 1;
       else if (window.matchMedia('(max-width:900px)').matches) perView = 2;
-      else perView = 3;
+      else if (window.matchMedia('(max-width:1100px)').matches) perView = 3;
+      else perView = 4;
     }
     computePerView();
     const maxIndex = () => Math.max(0, total - perView);
@@ -845,6 +849,10 @@
     cards.forEach(card=>{
       const video = card.querySelector('video.vplayer');
       if(!video) return;
+      // Show first frame as poster
+      video.addEventListener('loadedmetadata', ()=>{
+        try { video.currentTime = 0.1; } catch(e){}
+      });
       card.addEventListener('click', (e)=>{
         if(card.classList.contains('playing')){
           if(video.paused) video.play(); else video.pause();
